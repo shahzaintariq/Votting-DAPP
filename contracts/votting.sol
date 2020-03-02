@@ -13,9 +13,8 @@ contract votting{
     
 
     function addCandidate(uint _id,string memory _name) public returns(bool){
-        temp = candidate(_id,_name,0);
-        candidates[_id] = temp;
-        return true
+        candidates[_id] = candidate(_id,_name,0);
+        return true;
     }
 
 
