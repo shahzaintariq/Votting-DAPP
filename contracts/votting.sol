@@ -11,7 +11,19 @@ contract votting{
 
     mapping(address => bool) voters;
 
-    function addCandidate(uint _id,string memory _name) public returns(bool){
+    address private owner;
+
+    modifier onlyOwner() {
+        require(owner == msg.sender,"you are not owner");
+        _;
+
+    }
+
+    constructor() public{
+        owner = msg.sender;
+    }
+
+    function addCandidate(uint _id,string memory _name) public onlyOwner returns(bool){
         candidates[_id] = candidate(_id,_name,0);
         return true;
     }
@@ -26,5 +38,6 @@ contract votting{
         return true;
     }
 
+    
 
 }
