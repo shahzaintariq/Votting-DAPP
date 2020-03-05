@@ -10,6 +10,10 @@ contract votting{
     address private owner;
     candidate[] Array;
 
+    event Candidate(uint, string,address);
+     
+    event Vote(uint,address);
+    
     mapping(uint => candidate) candidates;
 
     mapping(address => bool) voters;
@@ -28,19 +32,20 @@ contract votting{
     function addCandidate(uint _id,string memory _name) public onlyOwner returns(bool){
         Array.push(candidate(_id,_name,0));
         candidates[_id] = candidate(_id,_name,0);
+        emit Candidate(_id,_name,msg.sender);
         return true;
     }
 
-    function Vote(uint _candidateId) public returns(bool){
+    function vote(uint _candidateId) public returns(bool){
         require(!voters[msg.sender],"you have already voted");
+        require(_candidateId == candidates[_candidateId].id,"invalid candidateId");
+        
+        voters[msg.sender] = true;
+        candidates[_candidateId].voted += 1;
 
-        if(_candidateId == candidates[_candidateId].id ){
-            voters[msg.sender] = true;
-            candidates[_candidateId].voted += 1;
-            return true;
-        }else {
-            return false;
-        }
+        emit Vote(_candidateId,msg.sender);
+        return true;
+        
     }
 
     function result() public view returns(string memory){
