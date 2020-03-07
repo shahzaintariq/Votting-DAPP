@@ -18,3 +18,8 @@ header{
     position: absolute;
     margin-left: 43%;
 }
+footer{
+    margin-top: 13%;
+    margin-left: 40%;
+    font-family: 'Owald', sans-serif;
+}
