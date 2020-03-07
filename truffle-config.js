@@ -18,12 +18,12 @@
  *
  */
 
- const HDWalletProvider = require('@truffle/hdwallet-provider');
+// const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
 // const fs = require('fs');
  //const mnemonic = fs.readFileSync(".secret").toString().trim();
- const mnemonic = 'maximum venture crew over author weird swamp correct giggle floor kit arch';
+ //const mnemonic = 'maximum venture crew over author weird swamp correct giggle floor kit arch';
 
 
 module.exports = {
@@ -44,11 +44,11 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+    development: {
+     host: "127.0.0.1",     // Localhost (default: none)
+     port: 8545,            // Standard Ethereum port (default: none)
+     network_id: "*",       // Any network (default: none)
+    },
 
     // Another network with more advanced options...
     // advanced: {
@@ -70,12 +70,13 @@ module.exports = {
     //   timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
     //   skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     // },
-    ropsten: {
-      provider: function() {
-        return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/1ee147e64fa648f9a64a5b7d2d27778c")
-      },
-      network_id: 3
-    }
+    // ropsten: {
+    //   provider: function() {
+    //     return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/1ee147e64fa648f9a64a5b7d2d27778c")
+    //   },
+    //   skipDryRun: true, 
+    //   network_id: 3
+    // }
 
     // Useful for private networks
     // private: {

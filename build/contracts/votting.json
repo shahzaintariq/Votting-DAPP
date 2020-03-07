@@ -104,7 +104,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.6.1+commit.e6f7d5a4\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"Candidate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"Vote\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"}],\"name\":\"addCandidate\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"result\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_candidateId\",\"type\":\"uint256\"}],\"name\":\"vote\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/E/Blockchain-Development/votting-dapp/contracts/votting.sol\":\"votting\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/E/Blockchain-Development/votting-dapp/contracts/votting.sol\":{\"keccak256\":\"0x46a120cea274bb2c57195d5c64fb40461910a6923e8c5e8e473388270886e907\",\"urls\":[\"bzz-raw://2cb370232622b361e30ce8a63e374d48c49130b106591f9b865a52b93aaf33f2\",\"dweb:/ipfs/QmXtWbbhPJ6q5PZoCav344KTQ9CNLf3YsUH9zxf5Yxpj9P\"]}},\"version\":1}",
@@ -5753,6 +5754,57 @@
     "version": "0.6.1+commit.e6f7d5a4.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {
+        "0x42517c9f540a736e99e86611d33c0ebef1b4b7c1109e63ab98a6d4478c9d523a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "Candidate",
+          "type": "event"
+        },
+        "0x10a412bf229fbac2408912cb271b8ff9eb39eb72da91dd0c8accab0fb1011135": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "Vote",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x937370749A6A17111Fd62E2cf76372A9ec428F87",
+      "transactionHash": "0x756506c16b069bea7d72459a1db3ee4d6630d8c1091d5ca8d1bc8f30aa2b51d9"
+    },
     "5777": {
       "events": {
         "0xc2d0c5b041ac2f386d0d18eb8073b26b92380343c92d7ca8a3fb4f07f646fdc4": {
@@ -5820,12 +5872,13 @@
         }
       },
       "links": {},
-      "address": "0xfCE546Df20D115b1b743E996A614984Fe18e5EAa",
-      "transactionHash": "0x88faecdfeb47459479210d543246a140c67649ac22be044dc2a8d3a44ef1be43"
+      "address": "0xC72e33Bbe1b711d374d27D5DD9e2FE9F30B20478",
+      "transactionHash": "0x9fc844abda85b97eef1dccda91b8314c7f6820dd7b962c5e1ef3b91d9703d018"
     }
   },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-03-05T20:27:17.970Z",
+  "updatedAt": "2020-03-07T15:50:49.833Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

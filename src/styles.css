@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(255, 255, 209);
+}
+header{
+    padding: 5%;
+    margin-left: 35%;
+    font-family: 'Oswald', sans-serif;;
+    font-size: large;
+}
+
+.search{
+    padding: 30px;
+    margin-left: 35%;
+}
+#result  {
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    margin-left: 43%;
+}
