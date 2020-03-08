@@ -79,6 +79,36 @@ var abi = [
       "inputs": [
         {
           "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getCandidateData",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
           "name": "_candidateId",
           "type": "uint256"
         }
@@ -109,6 +139,16 @@ var abi = [
       "constant": true
     }
   ]
+
+
+
+
+
+
+
+
+
+
 var contractAddress = '0xC72e33Bbe1b711d374d27D5DD9e2FE9F30B20478';
 
 var contract = new web3.eth.Contract(abi,contractAddress);
@@ -121,12 +161,42 @@ function addSomeCandidate(_id,_name){
     }
   ).then((r) => {console.log(r)})
 
-  var table = document.getElementById('mytable');
-  var row = table.insertRow(1);
-  var id = row.insertCell(0);
-  var name = row.insertCell(1);
-  var vote = row.insertCell(2);
-  id.innerHTML = _id;
-  name.innerHTML = _name;
-  vote.innerHTML = 0;
+}
+
+function fetchData(_id) {
+    var table = document.getElementById('mytable');
+    var row = table.insertRow(1);
+    var id = row.insertCell(0);
+    var n = row.insertCell(1);
+    var vote = row.insertCell(2);
+
+    contract.methods.getCandidateData(_id).call().then( function(r){
+      id.innerHTML = r[0];
+      n.innerHTML = r[1];
+      vote.innerHTML = r[2];
+    })
+}
+fetchData(2)
+fetchData(3)
+fetchData(0)
+
+
+search =  +document.getElementById('serachID').value;
+button = document.getElementById('button')
+
+console.log(search)
+
+function voteFor() {
+  contract.methods.vote(search).send(
+      {
+        from: '0x61bEb0a698DA264b535E9278F6b6f11D91c2b7E5',
+        gas: 4600000
+      }
+    ).then( (r) => {console.log(r)})
+}
+
+
+resultBtn = document.getElementById('result')
+function resultF() {
+  console.log(contract.methods.result().call().then( (r) => {console.log(r)}))
 }

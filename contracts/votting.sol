@@ -36,8 +36,8 @@ contract votting{
         return true;
     }
 
-    function getCandidateData(_id) public view returns(uint,string memory, uint){
-        return (candidates[_id].id, candidates[id].name, candidates[id].voted); 
+    function getCandidateData(uint _id) public view returns(uint,string memory, uint){
+        return (candidates[_id].id, candidates[_id].name, candidates[_id].voted); 
     }
 
 

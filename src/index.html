@@ -34,7 +34,7 @@
                 <th scope="col">VotesCount</th>
             </tr>
         </thead>
-        <tbody>
+        <!-- <tbody>
             <tr>
                 <th scope="row">1</th>
                 <td>candidate</td>
@@ -45,19 +45,19 @@
                 <td>candiate 1</td>
                 <td>0</td>
             </tr>
-        </tbody>
+        </tbody> -->
     </table>
 
     <div class="search">
         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Candidate's ID" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Vote</button>
+            <input class="form-control mr-sm-2" type="search"  placeholder="Candidate's ID" aria-label="Search" id="serachID">
+            <button class="btn btn-outline-primary my-2 my-sm-0" onclick='voteFor()' type="submit" id="button">Vote</button>
         </form>
     </div>
 
 
     <div>
-        <button type="button" class="btn btn-success" id="result"> Result </button>
+        <button type="button" onclick = 'resultF()' class="btn btn-success" id="result"> Result </button>
     </div>
 
     <!-- <script type="text/javascript" src="/node_modules/web3/dist/web3.min.js/"></script> -->
