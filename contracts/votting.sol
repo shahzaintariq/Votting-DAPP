@@ -36,6 +36,11 @@ contract votting{
         return true;
     }
 
+    function getCandidateData(_id) public view returns(uint,string memory, uint){
+        return (candidates[_id].id, candidates[id].name, candidates[id].voted); 
+    }
+
+
     function vote(uint _candidateId) public returns(bool){
         require(!voters[msg.sender],"you have already voted");
         require(_candidateId == candidates[_candidateId].id,"invalid candidateId");

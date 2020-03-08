@@ -1,4 +1,4 @@
-var Web3 = require('web3');
+
 var web3 = new Web3('HTTP://127.0.0.1:8545')
 
 var abi = [
@@ -111,8 +111,22 @@ var abi = [
   ]
 var contractAddress = '0xC72e33Bbe1b711d374d27D5DD9e2FE9F30B20478';
 
-var contract = new web3.eth.Contract(abi , contractAddress);
+var contract = new web3.eth.Contract(abi,contractAddress);
 
-//console.log(contract.methods.result().send({from: '0x4A6c7E8a3524FF7Edcd40452A8A86909335D3321' , gas: 3000000} ).then( (c) =>{ console.log(c)}))
-//console.log(contract.methods.result().call().then( (r) => {console.log(r)} ))
-//console.log(web3.eth.getAccounts().then((f) => {console.log(f)}))
+function addSomeCandidate(_id,_name){
+  contract.methods.addCandidate(_id,_name).send( 
+    {
+      from: '0x4A6c7E8a3524FF7Edcd40452A8A86909335D3321',
+      gas: 4600000 
+    }
+  ).then((r) => {console.log(r)})
+
+  var table = document.getElementById('mytable');
+  var row = table.insertRow(1);
+  var id = row.insertCell(0);
+  var name = row.insertCell(1);
+  var vote = row.insertCell(2);
+  id.innerHTML = _id;
+  name.innerHTML = _name;
+  vote.innerHTML = 0;
+}
