@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body">  
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -48,12 +48,21 @@
         </tbody> -->
     </table>
 
-    <div class="search">
+    <!-- <div class="search">
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search"  placeholder="Candidate's ID" aria-label="Search" id="serachID">
             <button class="btn btn-outline-primary my-2 my-sm-0" onclick='voteFor()' type="submit" id="button">Vote</button>
         </form>
-    </div>
+    </div> -->
+    <div class="dropdown" id="vote">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton butn" onclick="loadDataForDropList()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Vote Your Candidates Here:
+        </button>
+        <div class="dropdown-menu" onclick="voteHere()" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Candidate 1</a>
+          <a class="dropdown-item" href="#">Candididate 2</a>
+        </div>
+      </div>
 
 
     <div>

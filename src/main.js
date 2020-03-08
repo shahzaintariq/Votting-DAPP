@@ -140,15 +140,6 @@ var abi = [
     }
   ]
 
-
-
-
-
-
-
-
-
-
 var contractAddress = '0xC72e33Bbe1b711d374d27D5DD9e2FE9F30B20478';
 
 var contract = new web3.eth.Contract(abi,contractAddress);
@@ -163,6 +154,8 @@ function addSomeCandidate(_id,_name){
 
 }
 
+var cand = []
+var Ids = []
 function fetchData(_id) {
     var table = document.getElementById('mytable');
     var row = table.insertRow(1);
@@ -174,29 +167,23 @@ function fetchData(_id) {
       id.innerHTML = r[0];
       n.innerHTML = r[1];
       vote.innerHTML = r[2];
+      cand.push(r[1]);
+      Ids.push(r[0]);
     })
 }
-fetchData(2)
-fetchData(3)
-fetchData(0)
+fetchData(1);
+fetchData(2);
 
-
-search =  +document.getElementById('serachID').value;
-button = document.getElementById('button')
-
-console.log(search)
-
-function voteFor() {
-  contract.methods.vote(search).send(
-      {
-        from: '0x61bEb0a698DA264b535E9278F6b6f11D91c2b7E5',
-        gas: 4600000
-      }
-    ).then( (r) => {console.log(r)})
+function loadDataForDropList() {  
+  var data = document.querySelectorAll('a');
+  tempid = 0;
+  for(i=0; i<cand.length; i++){
+    data[i].innerHTML = cand[i];
+  }
 }
-
 
 resultBtn = document.getElementById('result')
 function resultF() {
-  console.log(contract.methods.result().call().then( (r) => {console.log(r)}))
+  console.log(contract.methods.result().send({from: "0x4A6c7E8a3524FF7Edcd40452A8A86909335D3321"}).then( (r) => {console.log(r)}))
+  contract.methods.result().call().then( (r) => {console.log(`Result Of Election : ${r}`)})
 }
