@@ -178,12 +178,21 @@ function loadDataForDropList() {
   var data = document.querySelectorAll('a');
   tempid = 0;
   for(i=0; i<cand.length; i++){
-    data[i].innerHTML = cand[i];
+    data[i].innerHTML =`  ${Ids[i]}  :  ${cand[i]}`;
   }
+}
+
+account = '0x8e5Fad4327F2535977190A00181C97108Dc45784'
+
+function voteHere() {
+  contract.methods.vote(Ids[0]).send( {from: account} ).then( (r) => {console.log(r)} )
+}
+function voteHere1() {
+  contract.methods.vote(Ids[1]).send( {from: account} ).then( (r) => {console.log(r)} )
 }
 
 resultBtn = document.getElementById('result')
 function resultF() {
   console.log(contract.methods.result().send({from: "0x4A6c7E8a3524FF7Edcd40452A8A86909335D3321"}).then( (r) => {console.log(r)}))
-  contract.methods.result().call().then( (r) => {console.log(`Result Of Election : ${r}`)})
+  contract.methods.result().call().then( (r) => {alert(`Winner : ${r}`)})
 }
